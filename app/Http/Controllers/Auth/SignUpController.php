@@ -15,7 +15,9 @@ class SignUpController extends Controller
         //Register a new user after validation using form request and passing validated data to register action.
         $action->execute($request->validated());
 
-        return response(null, 200)->json();
+        return response()->json([
+            'message' => 'Successfully signed up!'
+        ]);
 
     }
 }

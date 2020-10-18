@@ -24,6 +24,9 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('news','NewsController');
+    Route::get('favorites','FavoriteController@index');
+    Route::post('favorites','FavoriteController@store');
+    Route::delete('favorites','FavoriteController@destroy');
 });
 
 

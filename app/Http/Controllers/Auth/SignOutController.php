@@ -13,6 +13,8 @@ class SignOutController extends Controller
         //Logged out the current user.
         auth()->logout();
 
-        return response(null, 200)->json();
+        return response()->json([
+            'message' => 'Successfully logged out!'
+        ]);
     }
 }
