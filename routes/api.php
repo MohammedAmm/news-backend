@@ -22,3 +22,8 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
     Route::get('me', 'ProfileController');
 });
 
+Route::group(['middleware' => 'auth:api'], function() {
+    Route::get('news','NewsController');
+});
+
+
