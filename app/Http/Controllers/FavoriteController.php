@@ -8,6 +8,7 @@ use App\Actions\Favorite\StoreAction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Favorite\DeleteRequest;
 use App\Http\Requests\Favorite\StoreRequest;
+use App\Http\Resources\Favorite as FavoriteResource;
 
 class FavoriteController extends Controller
 {
@@ -22,7 +23,7 @@ class FavoriteController extends Controller
         //Get all logged in user 's favorites
         $favorites = $action->execute();
 
-        return response()->json(['data' =>$favorites]);
+        return FavoriteResource::collection($favorites);
     }
 
     /**
